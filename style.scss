@@ -1,0 +1,521 @@
+$secondary-color: #4a4a4a;
+$tertiary-color: #e6e6e6;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Dela Gothic One', cursive;
+}
+body {
+    background-color: $tertiary-color;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+header {
+    height: 10%;
+}
+main {
+    width: 100vw;
+    height: 80%;
+    overflow: hidden;
+    position: relative;
+    #home-page {
+        height: 100%;
+        width: 100%;
+        //display: ''; //change
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            > img {
+                height: 50vmin;
+                width: auto;
+                z-index: 3;
+            }
+            .back-logo {
+                position: absolute;
+                transform: rotate(-20deg) translate(-50%, -50%);
+                top: -35%;
+                left: 50%;
+                z-index: 1;
+                .right-to-left {
+                    display: flex;
+                    > img {
+                        animation: rightToLeft 10s infinite linear;
+                        height: 10vmin;
+                        width: auto;
+                    }
+                }
+                .left-to-right {
+                    display: flex;
+                    > img {
+                        position: relative;
+                        animation: leftToRight 10s infinite linear;
+                        height: 10vmin;
+                        width: auto;
+                    }
+                }
+            }
+        }
+        .start-button-container {
+            position: absolute;
+            bottom: 0;
+            > button {
+                text-transform: lowercase;
+                background-color: $tertiary-color;
+                border: none;
+                cursor: pointer;
+                font-size: 2rem;
+            }
+        }
+    }
+    #player-form-modal-overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        .player-form-modal {
+            width: 90vw;
+            height: 90%;
+            max-width: 500px;
+            max-height: 300px;
+            background-color: $tertiary-color;
+            opacity: 1;
+            border-radius: 5%;
+            padding: 2%;
+            display: flex;
+            align-items: center;
+            border: none;
+            position: relative;
+            #player-form {
+                width: 100%;
+                height: 100%;
+                > div {
+                    height: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:  flex-start;
+                    > span {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        font-size: 1.5rem;
+                        margin-bottom: 5%;
+                    }
+                    .human-or-bot {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        gap: 1rem;
+                    }
+                    .player-container {
+                        display: flex;
+                        justify-content: space-between;
+                        .player-name {
+                            flex-grow: 2;
+                        }
+                        > label {
+                            > input {
+                                width: 80%;
+                                outline: none;
+                                border: none;
+                                border-radius: 5px;
+                                text-align: center;
+                                &::placeholder {
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+                .start-button-container-modal {
+                    height: 5%;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 45%;
+                    > button {
+                        border: none;
+                        background-color: transparent;
+                        outline: none;
+                        cursor: pointer;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    #game-window {
+        width: 100%;
+        height: 100%;
+        background-color: $tertiary-color;
+        position: absolute;
+        top: 0;
+        display: none; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        .center-container {
+            z-index: 2;
+            background-color: $secondary-color;
+            border-radius: 10px;
+            width: 70%;
+            min-width: 300px;
+            padding: 1rem 0;
+            position: relative;
+            .board-player-container {
+                display: flex;
+                justify-content: center;
+                font-size: 1.5rem;
+                color: white;
+                #game-board {
+                    height: 250px;
+                    width: 250px;
+                    min-width: 250px;
+                    min-height: 250px;
+                    border-radius: 10px;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center; 
+                    align-items: center;
+                }
+                .score-container {
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 300px;
+                    max-height: 70%;
+                    white-space: pre-wrap;
+                    overflow: hidden;
+                }
+                .player1 {
+                    margin-right: 1rem;
+                }
+                .player2 {
+                    margin-left: 1rem;
+                }
+            }
+            .button-container {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                display: flex;
+                gap: 1rem;
+                #previous-button {
+                    display: none;
+                    border-radius: 100%;
+                    .material-symbols-outlined {
+                        font-variation-settings:
+                        'FILL' 0,
+                        'wght' 400,
+                        'GRAD' 0,
+                        'opsz' 24
+                    }
+                }
+                #redo-button {
+                    display: none;
+                    border-radius: 100%;
+                    .material-symbols-outlined {
+                        font-variation-settings:
+                        'FILL' 0,
+                        'wght' 400,
+                        'GRAD' 0,
+                        'opsz' 24
+                    }
+                }
+                #reset-button {
+                    border: 1px solid $secondary-color;
+                    padding: 0.3rem;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+            }
+            .continue-game-container {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                #continue-game {
+                    display: none;
+                }
+            }
+        }
+        .back-logo {
+            position: absolute;
+            transform: rotate(-20deg) translate(-50%, -50%);
+            top: -35%;
+            left: 50%;
+            z-index: 1;
+            .right-to-left {
+                display: flex;
+                > img {
+                    animation: rightToLeft 10s infinite linear;
+                    height: 10vmin;
+                    width: auto;
+                }
+            }
+            .left-to-right {
+                display: flex;
+                > img {
+                    position: relative;
+                    animation: leftToRight 10s infinite linear;
+                    height: 10vmin;
+                    width: auto;
+                }
+            }
+        }
+    }
+    #win-lose-modal {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        > div {
+            height: 50%;
+            width: 50%;
+            min-width: 350px;
+            background-color: $secondary-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            flex-direction: column;
+            .message-container {
+                margin-bottom: 1rem;
+                #message {
+                    font-size: 3rem;
+                    color: white;
+                }
+            }
+            .button-modal-container {
+                font-size: 2rem;
+                > button {
+                    border-radius: 10px;
+                    padding: 0.5rem;
+                }
+            }
+        }
+    }
+    #history-review {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        min-width: 350px;
+        width: 50%;
+        height: 100%;
+        background-color: $secondary-color;
+        overflow-y: auto;
+        transform: translateX(-93%);
+        display: none;
+        #round-history-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            .history-container {
+                width: 80%;
+                height: 50%;
+                min-width: 250px;
+                background-color: $tertiary-color;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+                border: none;
+                .round-container {
+                    width: 100%;
+                    height: 30%;
+                    padding: 0.5rem;
+                }
+                .move-container {
+                    width: 100%;
+                    height: 70%;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0.5rem;
+                    border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+            }
+        }
+        #history-button-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            cursor: pointer;
+            display: block;
+            .material-symbols-outlined{
+                font-size: 2rem;
+                font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24,
+            }
+        }
+        #close-history-button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            display: none;
+            cursor: pointer;
+            .material-symbols-outlined{
+                font-size: 2rem;
+                font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24,
+            }
+        }
+    }
+}
+
+@keyframes rightToLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(48%)
+    }
+}
+@keyframes leftToRight {
+    from {
+        transform: translateX(78%);
+    }
+    to {
+        transform: translateX(26%)
+    }
+}
+@keyframes winningBoard {
+    0%, 100% {
+        transform: scale(1);
+    }
+      50% {
+        transform: scale(1.1);
+    }
+}
+footer {
+    height: 10%;
+}
+
+.rowdiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-board-row {
+    display: flex;
+    width: 100%;
+    height: 25%;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+    .board-cell {
+        border: 1px solid $secondary-color;
+        padding: 1rem;
+        width: 25%;
+        height: 100%;
+        border: none;
+        background-color: $tertiary-color;
+        border-radius: 5px;
+        border: 0.5px solid #e1e1e1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        &:hover {
+            scale: 1.05;
+            background-color: #f3f0f0;
+        }
+    }
+}
+.winning-board {
+    animation: winningBoard 1s infinite linear
+}
+@media screen and (min-width: 376px) {
+    #home-page {
+        .logo-container {
+            .back-logo {
+                top: -50%;
+                left: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #player-form-modal-overlay {
+        .player-form-modal {
+            #player-form {
+                .player-container {
+                    display: flex;
+                    flex-direction: column;
+                    > label {
+                        > input {
+                            width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #game-window {
+        .center-container {
+            .board-player-container {
+                align-items: center;
+                flex-direction: column;
+                font-size: 1rem;
+                .score-container {
+                    white-space: ellipsis;
+                    width: 300px;
+                    overflow: none;
+                }
+                .player1 {
+                    margin-right: 0.5rem;
+                }
+                .player2 {
+                    margin-left: 0.5rem;
+                }
+            }
+            .button-container {
+                margin-top: 0.5rem;
+                display: flex;
+                justify-content: center;
+                display: flex;
+                gap: 1rem;
+            }
+            .continue-game-container {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}

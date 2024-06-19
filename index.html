@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <button></button>
+        </nav>
+    </header>
+    <main>
+        <section id="home-page">
+            <div class="logo-container"> 
+                <img src="assets/logo.svg" alt="logo" />
+                <div class="back-logo">
+                    <div class="right-to-left">
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                    </div>
+                    <div class="left-to-right">
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                    </div>
+                    <div class="right-to-left">
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                        <img src="assets/backlogo.svg" alt="backlogo" />
+                    </div>
+                </div>
+                <div class="start-button-container">
+                    <button id="start-button">
+                        Start
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="player-form-modal-overlay">
+            <div class="player-form-modal">
+                <form id="player-form" action="">
+                    <div>
+                        <span>Player 1</span>
+                        <div class="player-container p1">
+                            <label for="player1-name" class="player-name">Name:
+                                <input type="text" id="player1-name" name="player1-name" placeholder="Enter Player's 1 name" required />
+                            </label>
+                            <label for="player1-mark" name="player1-mark">Mark:
+                                <select name="player1-mark" id="player1-mark">
+                                    <option value="X" selected>X</option>
+                                    <option value="O">O</option>
+                                </select>
+                            </label> 
+                        </div>
+                    </div>
+                    <div>
+                        <span>Player 2</span>
+                        <div class="human-or-bot">
+                            <input type="radio" id="human" value="human" name="player2-type" checked>
+                            <label for="human">Human</label>
+                            <input type="radio" id="bot" value="bot" name="player2-type">
+                            <label for="bot">Bot</label>
+                        </div>
+                        <div class="player-container p2">
+                            <label for="player2-name" class="player-name">Name: 
+                                <input type="text" id="player2-name" name="player2-name" placeholder="Enter Player's 2 name" required/>
+                            </label>
+                            <label for="player2-mark" name="player2-mark">Mark:
+                                <select name="player2-mark" id="player2-mark">
+                                    <option value="X">X</option>
+                                    <option value="O" selected>O</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="start-button-container-modal">
+                        <button id="start-button-modal">
+                            Start
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="game-window">
+            <div class="center-container">
+                <div class="board-player-container">
+                    <div class="score-container player1">
+                        <span id="player1-name-container"></span>
+                        <span id="player1-score-container">0</span>
+                    </div>
+                    <div id="game-board">
+        
+                    </div>
+                    <div class="score-container player2">
+                        <span id="player2-name-container"></span>
+                        <span id="player2-score-container">0</span>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button id="previous-button">
+                        <span class="material-symbols-outlined">
+                        undo
+                        </span>
+                    </button>
+                    <button id="reset-button">reset</button>
+                    <button id="redo-button">
+                        <span class="material-symbols-outlined">
+                            redo
+                        </span>
+                    </button>
+                </div>
+                <div class="continue-game-container">
+                    <button id="continue-game">Continue</button>
+                </div>
+            </div>
+            <div class="back-logo">
+                <div class="right-to-left">
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                </div>
+                <div class="left-to-right">
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                </div>
+                <div class="right-to-left">
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                    <img src="assets/backlogo.svg" alt="backlogo" />
+                </div>
+            </div>
+        </section>
+        <section id="win-lose-modal">
+            <div>
+                <div class="message-container">
+                    <span id="message"></span>
+                </div>
+                <div class="button-modal-container">
+                    <button id="review-game-button">Review Game</button>
+                    <button id="reset-button-modal">Reset</button>
+                    <button id="continue-button-modal">Continue</button>
+                </div>
+            </div>
+        </section>
+        <section id="history-review">
+            <div id="round-history-container">
+            </div>
+            <button id="history-button-container">
+                <span class="material-symbols-outlined">
+                    history
+                </span>
+            </button>
+            <button id="close-history-button">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
